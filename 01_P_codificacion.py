@@ -58,7 +58,7 @@ def DecodeAux(C,c2m,Current,PosMessage,MaxSize):
                 return res
         else:
             if len(C) > 0:
-                return DecodeAux(C[1:],c2m,Current+C[0],PosMessage,MaxSize)
+                return DecodeAux(C[1:],c2m,Current + C[0],PosMessage,MaxSize)
             else:
                 return ""
 
