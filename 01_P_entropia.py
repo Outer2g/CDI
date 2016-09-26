@@ -71,20 +71,33 @@ print(LongitudMedia(C,p))
 '''
 Dibujar H(p,1-p)
 '''
-def holi():
-    x = []
-    y = []
-    paso = 0.01
-    for p in np.arrange(0,1.0,paso):
-        x.append(p)
-        y.append(H1([p,1-p]))
-    plt.plot(x,y,'r-',l2 = 2)
-    plt.show()
+
+x = []
+y = []
+paso = 0.01
+for p in np.arange(0,1.0,paso):
+    x.append(p)
+    y.append(H1([p,1-p]))
+plt.plot(x,y,'r-')
+plt.show()
 
 
 '''
 Hallar aproximadamente el máximo de  H(p,q,1-p-q)
 '''
+paso = 0.01
+p_max = 0
+q_max = 0
+H_max = 0
 
+for p in np.arange(0,1.0+paso,paso):
+	for q in np.arange(0,1.0-p,paso):
+		# al llamar a H1 ya se descartan las combinaciones no validas (p+q > 1)
+		currentH = H1([p,q,1-p-q])
+		if (currentH> H_max):
+			p_max = p
+			q_max = q
+			H_max = currentH
 
+print('Max entropia: ' + str(H_max) + ' con q =' + str(q_max) + ' y p = ' + str(p_max))
 
