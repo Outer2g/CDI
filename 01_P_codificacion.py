@@ -40,6 +40,16 @@ def GetMax(list):
             max = len(value)
     return max
 
+def Decode2(M,c2m):
+    current = ''
+    mensaje = ''
+    for simbolo in M:
+        current += simbolo
+        if current in c2m:
+            mensaje += c2m[current]
+            current = ''
+    return mensaje
+
 def Decode(C,c2m):
     size = GetMax(c2m)
     return DecodeAux(C,c2m,"","",size)
