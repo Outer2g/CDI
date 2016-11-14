@@ -251,7 +251,6 @@ for _ in range(10):
     C = comparacion(mensaje,alfabeto,probabilidades)
     print(C)
 
-    
 
 '''
 Generar 10 mensajes aleatorios M de longitud 10<=n<=100 aleatoria 

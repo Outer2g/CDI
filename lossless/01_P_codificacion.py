@@ -184,4 +184,23 @@ if M == D:
 else:
     print('Test 6.1. Failed')
 
+print('----PRUEBAS-----')
 
+R = [('a','10'), ('b','11'), ('c','111'), ('d','1111')]
+'''a. ['00', '01', '100', '101', '110', '111', '1111']
+b.
+
+['00', '010', '011', '100', '101', '1100', '1101', '1110', '1111']
+c. ['0', '10', '110', '111']
+d. ['00', '010', '011', '100', '101', '1100', '1101', '1110', '1111', '11111']'''
+# encoding dictionary
+m2c = dict(R)
+
+# decoding dictionary
+c2m = dict([(c,m) for m, c in R])
+
+mensaje= 'abcd'
+C = Encode(mensaje,m2c)
+D = Decode(C,c2m)
+print(mensaje, ' ', D)
+print(D == mensaje)

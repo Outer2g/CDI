@@ -30,6 +30,7 @@ sol = [6, 6, 2, 2, 3, 1, 1, 2, 2, 5, 2,
                            2, 4, 1, 4, 3, 2, 8, 6, 7, 8]
 code = MtFCode(mensaje,alfabeto)
 print(code,' ', sol == code)
+print(len(mensaje), len(code))
 
 """
 Dado un mensaje codificado usando la técnica de 'Move to Front'
@@ -101,10 +102,12 @@ print(cod,' ',cod ==[[' ', 4], ['a', 3], ['c', 1], ['e', 1], ['h', 1],
 lista=[8, 2, 5, 1, 4, 7, 7, 1, 6, 6, 5, 6, 1, 9, 8, 9, 1, 7, 8,
       8, 8, 7, 8, 1, 1, 1]
 cod = RLE(lista)
-print(cod,' ', cod == [[8, 1], [2, 1], [5, 1], [1, 1], [4, 1], [7, 2],
+sol = [[8, 1], [2, 1], [5, 1], [1, 1], [4, 1], [7, 2],
               [1, 1], [6, 2], [5, 1], [6, 1], [1, 1], [9, 1],
               [8, 1], [9, 1], [1, 1], [7, 1], [8, 3], [7, 1],
-              [8, 1], [1, 3]])
+              [8, 1], [1, 3]]
+print(cod,' ', cod == sol)
+print(len(lista),len(cod))
 
 """
 Dada una lista codificada usando 'Run Length Encoding', 
@@ -165,6 +168,7 @@ def BWT(mensaje):
     list.sort(permutaciones)
     posicion = permutaciones.index(mensaje)
     ultima_columna = ''
+    print('size permutations : ',len(permutaciones))
     for perm in permutaciones:
         ultima_columna += perm[-1]
     return ultima_columna, posicion
@@ -205,8 +209,13 @@ ultima_columna='pssmipissii'
 posicion=4
 men  = iBWT(ultima_columna,posicion)
 print(men,' ', men == 'mississippi')
-
-
+print('--------PRUEBAS------------')
+mensaje = 'aaaaaaaaaaaaaaaaaaaaaa'
+print(len(mensaje))
+cod = BWT(mensaje)
+print(cod)
+D = iBWT('aaaaaaaaaaaaaaaaaaaaaa',2)
+print(D)
 
 """
 Dado un mensaje (y un alfabeto) BWCode aplica sucesivamente al
@@ -243,7 +252,7 @@ def BWDecode(codeRLE,posicion,alfabeto=[]):
 
 
 #########################################################
-import time
+'''import time
 
 alfabeto=[chr(i) for i in range(1,255)]
 
@@ -268,5 +277,5 @@ if (mensaje!=mensaje_recuperado):
         print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         print(len(mensaje),len(mensaje_recuperado))
         print(mensaje[-5:],mensaje_recuperado[-5:])
-else: print('Todo esta bien')
+else: print('Todo esta bien')'''
 
