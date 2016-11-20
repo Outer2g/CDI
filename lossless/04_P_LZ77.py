@@ -113,7 +113,7 @@ code=[[0, 0, 't'], [0, 0, 'e'], [0, 0, 'l'], [2, 3, 't'],
       [6, 5, 'EOF']]
 print(LZ77Decode(code))
 
-mensaje=['a'] * 20
+mensaje='teleletelele'
 code = LZ77Code(mensaje,100,256)
 print(code)
 print(mensaje == LZ77Decode(code))
