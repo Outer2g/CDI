@@ -36,7 +36,7 @@ class Range():
         return ((self.divisions[pos] - self.divisions[pos-1]) / 2) + self.divisions[pos-1]
 img = misc.imread('test_images/lena_gray_512.png')
 (n,m) = img.shape
-k = 6
+k = 2
 distrib = Range(k)
 for i in range(n):
     for j in range(m):
@@ -79,9 +79,9 @@ img = misc.imread('test_images/lena_gray_512.png')
 k = 2
 n_bloque = 8
 minMaxBloques = []
+values = []
 for i in range(n_bloque):
     for j in range(n_bloque):
-        values = []
         for ii in range(int(int(n)/int(n_bloque))):
             for jj in range(int(n/n_bloque)):
                 values += [img[i*ii][j*jj]]
@@ -90,7 +90,7 @@ for i in range(n_bloque):
         for ii in range(int(n/n_bloque)):
             for jj in range(int(n/n_bloque)):
                 img[i*ii][j*jj] = int(distrib.Quantization(img[i*ii][j*jj]))
-
+print(values)
 plt.imshow(img,cmap=plt.cm.gray)
 plt.xticks([])
 plt.yticks([])
